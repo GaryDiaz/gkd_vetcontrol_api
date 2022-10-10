@@ -5,6 +5,7 @@ namespace App\Entities;
 use CodeIgniter\Entity\Entity;
 
 class UsuarioEntity extends Entity {
+  protected $datamap = ["id" => "idUsuario"];
   protected $attributes = [
     "idUsuario" => null,
     'nick' => null,
@@ -16,5 +17,4 @@ class UsuarioEntity extends Entity {
     'estatus' => null,
     'ultimoAcceso' => null,
   ];
-  protected $datamap = ["id" => "idUsuario"];
 }

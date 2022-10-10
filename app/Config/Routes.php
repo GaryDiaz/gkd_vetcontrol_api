@@ -45,6 +45,12 @@ $routes->group("", ["filter" => ["cors", "acceso"]], static function ($routes) {
   $routes->put("/usuario/(:segment)", "UsuarioController::update/$1");
   $routes->delete("/usuario/(:segment)", "UsuarioController::update/$1");
   $routes->post("/cambiarclave", "UsuarioController::cambiarClave");
+
+  $routes->post("/veterinario", "VeterinarioController::create");
+  $routes->get("/veterinarios", "VeterinarioController::index");
+  $routes->get("/veterinario/(:segment)", "VeterinarioController::show/$1");
+  $routes->put("/veterinario/(:segment)", "VeterinarioController::update/$1");
+  $routes->delete("/veterinario/(:segment)", "VeterinarioController::delete/$1");
 });
 
 /*

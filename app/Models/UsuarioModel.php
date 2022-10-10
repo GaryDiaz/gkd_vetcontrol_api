@@ -34,16 +34,16 @@ class UsuarioModel extends Model {
     'rol' => 'required|max_length[20]',
     'nombre' => 'required|max_length[20]',
     'apellido' => 'required|max_length[20]',
-    'estatus' => 'required|max_length[20]',
+    'estatus' => 'required|in_list[ACTIVO,INACTIVO]',
   ];
   protected $validationMessages = [
     'idUsuario' => [
       'required' => 'El id de usuario es obligatorio',
-      'is_unique' => 'El id de usuario {idUsuario} ya existe',
+      'is_unique' => 'El id de usuario ingresado ya existe',
     ],
     'nick' => [
       'required' => 'El nick es obligatorio',
-      'is_unique' => 'El nick {nick} ya existe',
+      'is_unique' => 'Ese nick ya existe',
     ],
     'clave' => [
       'required' => 'Debe proporcionar una clave'
@@ -62,7 +62,7 @@ class UsuarioModel extends Model {
     ],
     'estatus' => [
       'required' => 'Debe seleccionar un estatus',
-      'max_length' => 'Se ha excedido del máximo de caracteres (20)'
+      "in_list" => "Debe seleccionar un estatus"
     ],
   ];
   protected $skipValidation       = false;

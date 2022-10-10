@@ -73,11 +73,6 @@ class UsuarioController extends ResourceController {
   }
 
   public function delete($id = null) {
-    $form = $this->request->getJSON(true);
-    if (empty($form)) {
-      return $this->failValidationErrors("Nada que hacer");
-    }
-
     if (!$this->model->find($id)) {
       return $this->failNotFound("El usuario que intenta eliminar no existe");
     }
