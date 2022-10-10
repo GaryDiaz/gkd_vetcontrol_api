@@ -2,46 +2,46 @@
 
 namespace App\Models;
 
-use App\Entities\VeterinarioEntity;
+use App\Entities\PropietarioEntity;
 use CodeIgniter\Model;
 
-class VeterinarioModel extends Model {
+class PropietarioModel extends Model {
   protected $DBGroup          = 'default';
-  protected $table            = 'veterinario';
-  protected $primaryKey       = 'idVeterinario';
+  protected $table            = 'propietario';
+  protected $primaryKey       = 'idPropietario';
   protected $useAutoIncrement = false;
   protected $insertID         = 0;
-  protected $returnType       = VeterinarioEntity::class;
+  protected $returnType       = PropietarioEntity::class;
   protected $useSoftDeletes   = false;
   protected $protectFields    = true;
   protected $allowedFields    = [
-    "idVeterinario",
-    "idUsuario",
+    "idPropietario",
+    "cedula",
     "nombre",
     "apellido",
-    "telefono",
-    "email",
+    "direccion",
+    "telefonoPrincipal",
+    "telefono2",
     "estatus",
   ];
 
   // Validation
   protected $validationRules      = [
-    "idVeterinario" => "required|is_unique[veterinario.idVeterinario]",
-    "idUsuario" => "required|is_not_unique[usuario.idUsuario]",
+    "idPropietario" => "required|is_unique[propietario.idPropietario]",
+    "cedula" => "required|is_unique[propietario.cedula]",
     "nombre" => "required|max_length[20]",
     "apellido" => "required|max_length[20]",
-    "telefono" => "required|max_length[14]",
-    "email" => "required|valid_email|max_length[100]",
+    "telefonoPrincipal" => "required|max_length[14]",
     "estatus" => "required|in_list[ACTIVO,INACTIVO]",
   ];
   protected $validationMessages   = [
-    "idVeterinario" => [
-      "required" => "El Id de Veterinario es obligatorio",
-      "is_unique" => "El Id de Veterinario ingresado ya existe",
+    "idPropietario" => [
+      "required" => "El Id de Propietario es obligatorio",
+      "is_unique" => "El Id de Propietario ingresado ya existe",
     ],
-    "idUsuario" => [
-      "required" => "El Id de Usuario es obligatorio",
-      "is_not_unique" => "No existe ningún usuario con ese Id",
+    "cedula" => [
+      "required" => "La cédula es obligatoria",
+      "is_unique" => "La Cédula ingresada ya existe",
     ],
     "nombre" => [
       "required" => "El nombre es obligatorio",
@@ -51,14 +51,9 @@ class VeterinarioModel extends Model {
       "required" => "El apellido es obligatorio",
       "max_length" => "Ha excedido la longitud máxima (20)"
     ],
-    "telefono" => [
-      "required" => "El número de teléfono es obligatorio",
-      "max_length" => "Ha excedido la longitud máxima (14)"
-    ],
-    "email" => [
-      "required" => "El email es obligatorio",
-      "max_length" => "Ha excedido la longitud máxima (100)",
-      "valid_email" => "Debe ingresar un email válido",
+    "telefonoPrincipal" => [
+      "required" => "El teléfono es obligatorio es obligatorio",
+      "max_length" => "Ha excedido la longitud máxima (255)"
     ],
     "estatus" => [
       "required" => "El estatus es obligatorio",

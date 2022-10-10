@@ -6,14 +6,34 @@ use App\Entities\VeterinarioEntity;
 use App\Traits\ArrayTrait;
 
 class VeterinarioBean {
+  /**
+   * @var int
+   */
   public $id;
+  /**
+   * @var int
+   */
   public $idUsuario;
+  /**
+   * @var string
+   */
   public $nombre;
+  /**
+   * @var string
+   */
   public $apellido;
+  /**
+   * @var string
+   */
   public $telefono;
+  /**
+   * @var string
+   */
   public $email;
+  /**
+   * @var string
+   */
   public $estatus;
-  public $usuario;
 
   public function __construct(VeterinarioEntity $veterinario = null) {
     if ($veterinario) {
