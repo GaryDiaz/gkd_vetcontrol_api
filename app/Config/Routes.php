@@ -52,6 +52,12 @@ $routes->group("", ["filter" => ["cors", "acceso"]], static function ($routes) {
   $routes->put("/propietario/(:segment)", "PropietarioController::update/$1");
   $routes->delete("/propietario/(:segment)", "PropietarioController::delete/$1");
 
+  $routes->post("/raza", "PropietarioController::create");
+  $routes->get("/razas/(:segment)", "PropietarioController::list/$1");
+  $routes->get("/raza/(:segment)", "PropietarioController::show/$1");
+  $routes->put("/raza/(:segment)", "PropietarioController::update/$1");
+  $routes->delete("/raza/(:segment)", "PropietarioController::delete/$1");
+
   $routes->post("/usuario", "UsuarioController::create");
   $routes->get("/usuarios", "UsuarioController::index");
   $routes->get("/usuario/(:segment)", "UsuarioController::show/$1");

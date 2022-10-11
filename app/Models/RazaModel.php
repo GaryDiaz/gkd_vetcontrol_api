@@ -52,7 +52,7 @@ class RazaModel extends Model {
   ];
   protected $skipValidation       = false;
 
-  public function nextItem($idEspecie): int {
+  public function nextIdRaza($idEspecie): int {
     $builder = $this->db->table($this->table);
     $row = $builder->select("idRaza")
       ->where("idEspecie", $idEspecie)->orderBy("idRaza", "DESC")
