@@ -78,7 +78,7 @@ class PacienteModel extends Model {
     ],
     "fechaNacimiento" => [
       "required" => "La Fecha de Nacimiento es obligatorio, puede ser aproximada",
-      "valid_date" => ""
+      "valid_date" => "Debe ingresar una fecha válida"
     ],
     "procedencia" => [
       "required" => "La Procedencia es obligatorio",

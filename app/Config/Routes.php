@@ -40,6 +40,12 @@ $routes->post("login", "UsuarioController::login", ['filter' => 'cors']);
 
 $routes->group("", ["filter" => ["cors", "acceso"]], static function ($routes) {
 
+  $routes->post("/cita", "CitaController::create");
+  $routes->get("/citas", "CitaController::index");
+  $routes->get("/cita/(:segment)", "CitaController::show/$1");
+  $routes->put("/cita/(:segment)", "CitaController::update/$1");
+  $routes->delete("/cita/(:segment)", "CitaController::delete/$1");
+
   $routes->post("/especie", "EspecieController::create");
   $routes->get("/especies", "EspecieController::index");
   $routes->get("/especie/(:segment)", "EspecieController::show/$1");
